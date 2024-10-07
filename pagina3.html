@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Story</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            background-color: navy;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .section {
+            display: none; /* Start hidden */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .active {
+            display: block; /* Show active section */
+            opacity: 1; /* Fade in */
+        }
+
+        .content {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            border: 2px solid #3498db;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+        }
+
+        .content img {
+            width: 60%;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0; /* Spacing around the image */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        audio {
+            display: none; /* Hide audio controls */
+        }
+
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="background-music" autoplay loop>
+        <source src="musica/lofi-study-calm-peaceful-chill-hop-112191.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="section active" id="section1">
+        <div class="content">
+            <h1>CHAPTER 1 - Introduction</h1>
+            <img src="imagenes/imagen1.jpg" alt="Ocean view">
+            <p>The ocean had always been the lifeline for Juanjo and his coastal village, a haven of resources and stability passed down through generations. But now, what was once their ally is changing. Storms are hitting with unprecedented fury, and every day Juanjo’s nets come back emptier. For him, the sea he once knew is disappearing before his eyes.</p>
+            <p>What he is experiencing is not an isolated phenomenon, but a reality shared by millions of people around the world who depend on the oceans and, unwittingly, also face the devastating consequences of climate change.</p>
+            <button onclick="nextSection(2)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section2">
+        <div class="content">
+            <h2>Problem:</h2>
+            <img src="imagenes/imagen3.jpg" alt="Boat shadow">
+            <p>Since the industrial age, the ocean has been our greatest ally in the fight against climate change, absorbing 40% of the CO₂ we emit. Yet this vast sea, which for so long provided us with shelter and sustenance, is beginning to falter under the weight of our own recklessness.</p>
+            <p>Scientific models, such as ECCO-Darwin, have revealed a worrying picture: marine life is on the brink of collapse due to pollution, overfishing, and climate change, and with it, coastal communities that depend on its resources face an uncertain future.</p>
+            <button onclick="nextSection(3)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section3">
+        <div class="content">
+            <h2>Climate Change Impact</h2>
+            <img src="imagenes/imagen4.jpg" alt="Coastal storm">
+            <p>This scenario reflects the negative impact of our recklessness, which has compromised the health of the oceans and, therefore, the livelihood of millions of people. For Juanjo, the Sustainable Development Goals (SDGs) are not just abstract goals; they are his daily reality.</p>
+            <p>SDG 13, which seeks to combat climate change, is what separates survival from the total loss of his way of life. Every day, his fight reflects the urgent need for climate justice.</p>
+            <button onclick="nextSection(4)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section4">
+        <div class="content">
+            <h2>SDG 10 & 14</h2>
+            <img src="imagenes/tortu.jpg" alt="SDG 10 and 14">
+            <p>In addition, SDG 10, which promotes the reduction of inequalities, reminds us that the most vulnerable, those who contributed the least to this crisis, are those who suffer the most.</p>
+            <p>The fight for climate justice thus becomes a desperate battle to save not only our planet but our own lives. SDG 14 calls on us to protect our oceans and marine resources, promoting practices that ensure their conservation.</p>
+            <button onclick="nextSection(5)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section5">
+        <div class="content">
+            <h2>Global Population Pressure</h2>
+            <img src="imagenes/apoca.jpg" alt="Global population pressure">
+            <p>Every action we take is crucial, as global population growth, with an estimated density of 59 people per square kilometer in 2020, puts increasing pressure on our coastal ecosystems.</p>
+            <p>According to NASA’s OCO-2 mission, CO₂ emissions reached 36.4 billion tons in 2020, underscoring the urgent need to address climate change and foster sustainable use of our resources.</p>
+            <button onclick="nextSection(6)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section6">
+        <div class="content">
+            <h1>CHAPTER 2 - Science-based Action Proposal</h1>
+            <img src="imagenes/noe.jpg" alt="Science-based action">
+            <p>Given the significant impact of climate change on the life of Juanjo and his coastal community, a solution is proposed that consists of the following elements:</p>
+            <button onclick="nextSection(7)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section7">
+        <div class="content">
+            <h1>Part 1: Smart Sensors for Ocean Monitoring</h1>
+            <img src="imagenes/plastic.jpg" alt="Smart sensors">
+            <p>The creation and installation of advanced sensors will enable the detection of key patterns of pollution in the ocean, such as acidity (pH), temperature, salinity, and the presence of pollutants. These data will not only reflect the state of the marine ecosystem, but will also serve as early indicators of critical changes.</p>
+            <button onclick="nextSection(8)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section8">
+        <div class="content">
+            <h1>Part 2: Community Involvement</h1>
+            <img src="imagenes/revision.png" alt="Community involvement">
+            <p>Engage the local fishermen and community members in the data collection process. Through workshops and training sessions, they will learn to use the sensors and interpret the data, fostering a sense of ownership and responsibility.</p>
+            <p>This involvement will not only empower the community but also create a network of support as they share insights and strategies for protecting their ocean resources.</p>
+            <button onclick="nextSection(9)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section9">
+        <div class="content">
+            <h1>CHAPTER 3 - The Echoes of the Sea</h1>
+            <img src="imagenes/llamas.jpg" alt="Echoes of the sea">
+            <p>Additionally, there are many other impacts associated with these changes. For instance, fish migration patterns are shifting, meaning Juanjo and other fishermen must travel farther and farther from the coast to find viable fishing grounds.</p>
+            <p>This increased distance not only raises fuel costs but also endangers their lives by exposing them to the unpredictable ocean currents and worsening storms.</p>
+            <button onclick="nextSection(10)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section10">
+        <div class="content">
+            <h2>Part 1: Resilience in the Face of Change</h2>
+            <img src="imagenes/pie.jpg" alt="Resilience">
+            <p>Juanjo’s story is a reminder of the resilience required in the face of a changing climate, but also the fragility of life when left without the means to adapt.</p>
+            <p>The ocean, once a source of life, is now a source of anxiety and uncertainty for those who live from its bounty.</p>
+            <button onclick="nextSection(11)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section11">
+        <div class="content">
+            <h2>Part 2: A Call to Action</h2>
+            <img src="imagenes/barras.jpg" alt="Action">
+            <p>Juanjo and his community are not alone. Their experience mirrors that of millions around the world, from the Arctic to small island states, all facing the devastating consequences of a changing climate. But with awareness comes the power to act.</p>
+            <p>It is not too late to reverse the damage and chart a new course, but only if we collectively commit to bold and decisive action.</p>
+            <button onclick="nextSection(12)">[Next]</button>
+        </div>
+    </div>
+
+    <div class="section" id="section12">
+        <div class="content">
+            <h2>The End</h2>
+            <img src="imagenes/imagen1.jpg" alt="Sunset">
+            <p>Thank you for joining this journey through Juanjo’s eyes, a journey that reflects the reality of so many. The future of our oceans and our planet rests in our hands.</p>
+            <button onclick="nextSection(1)">[Start Again]</button>
+        </div>
+    </div>
+
+    <div class="music-controls">
+        <button onclick="toggleMusic()">Toggle Music</button>
+    </div>
+
+    <script>
+        let currentSection = 1;
+        const totalSections = 12;
+
+        function nextSection(section) {
+            document.getElementById(`section${currentSection}`).classList.remove('active');
+            currentSection = section;
+            document.getElementById(`section${currentSection}`).classList.add('active');
+        }
+
+        function toggleMusic() {
+            const music = document.getElementById('background-music');
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
+
+</body>
+</html>

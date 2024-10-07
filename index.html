@@ -1,0 +1,20 @@
+<script>
+    let currentSection = 1;
+
+    function nextSection(section) {
+        // Detener la música y reiniciarla
+        const music = document.getElementById('background-music');
+        music.pause();
+        music.currentTime = 0; // Reiniciar la música al principio
+        music.play(); // Reproducir la música
+
+        document.getElementById('section' + currentSection).classList.remove('active');
+        // Esperar a que la transición de opacidad termine antes de ocultar
+        setTimeout(() => {
+            document.getElementById('section' + currentSection).style.display = 'none';
+            currentSection = section;
+            document.getElementById('section' + currentSection).style.display = 'block';
+            document.getElementById('section' + currentSection).classList.add('active');
+        }, 1500); // El tiempo debe coincidir con la duración de la transición
+    }
+</script>
